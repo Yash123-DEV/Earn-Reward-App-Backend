@@ -5,6 +5,8 @@ import cors from "cors";
 dotenv.config();
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
+const  FRONTEND_URL = process.env.FRONTEND_URL;
+
 const app = express();
 const userRouter = require("./routes/userRouter");
 
@@ -14,7 +16,7 @@ app.set("view engine", "ejs");
 
 app.use(
   cors({
-    origin: `http://192.168.50.187:3000`,
+    origin : FRONTEND_URL,
     credentials: true, 
   })
 );
